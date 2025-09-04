@@ -33,7 +33,7 @@ sequelize
   .authenticate()
   .then(() => {
     console.log("✅ Connecté à Railway MySQL !");
-    return sequelize.sync({ alter: false });
+    return sequelize.sync({ force: true });
   })
   .then(() => {
     console.log("✅ Base de données synchronisée !");
