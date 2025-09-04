@@ -21,7 +21,7 @@ app.use("/api/projects", projectRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/skills", skillRoutes);
 app.use("/api/experiences", experienceRoutes);
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static("methycpde-project"));
 
 // Route test
 app.get("/", (req, res) => {
@@ -42,6 +42,14 @@ sequelize
     console.error("❌ Erreur connexion DB :", err);
   });
 
+  // ✅ Middleware global d’erreurs
+app.use((err, req, res, next) => {
+  console.error("❌ Erreur serveur:", err); // log dans console Render
+  res.status(500).json({
+    error: err.message || "Erreur serveur interne",
+    details: err.stack, // pour debug
+  });
+});
 // Lancer serveur
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

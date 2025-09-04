@@ -6,7 +6,7 @@ import {
   deleteProject,
 } from "../controllers/ProjectController.js";
 import { verifyToken } from "../middlewares/authMiddleware.js";
-import { upload } from "../middlewares/uploadMiddleware.js";
+import  upload  from "../middlewares/uploadMiddleware.js";
 
 const router = express.Router();
 
