@@ -1,2 +1,7 @@
-Render fichier
-
+services:
+  - type: web
+    name: methy-tech-backend
+    env: node
+    branch: main
+    buildCommand: npm install
+    startCommand: node server.js
