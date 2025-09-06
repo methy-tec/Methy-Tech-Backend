@@ -15,12 +15,15 @@ import projectRoutes from "./src/routes/projectRoutes.js";
 import authRoutes from "./src/routes/authRoutes.js";
 import skillRoutes from "./src/routes/skillRoutes.js";
 import experienceRoutes from "./src/routes/experienceRoutes.js";
+import contactRoutes from "./src/routes/contactRoutes.js";
 
 //Utilisation de routes
 app.use("/api/projects", projectRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/skills", skillRoutes);
 app.use("/api/experiences", experienceRoutes);
+app.use("/api/contact", contactRoutes)
+
 app.use("/uploads", express.static("methycpde-project"));
 
 // Route test
@@ -33,7 +36,7 @@ sequelize
   .authenticate()
   .then(() => {
     console.log("✅ Connecté à Railway MySQL !");
-    return sequelize.sync({ alter: false });
+    return sequelize.sync({ alter: false});
   })
   .then(() => {
     console.log("✅ Base de données synchronisée !");
